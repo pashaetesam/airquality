@@ -3,5 +3,17 @@
 {% block content %}
 
     <h1>Hello my is farbakon </h1>
+    <br>
 
-{% endblock content%}
+    {% if api %}
+        {%  if api == "Error..." %}
+        There were en Error please try again.
+        {% else %}
+            Air Quality:   {{ api.0.AQI }} <br>
+            Area:          {{ api.0.ReportingArea }} <br>
+            Category:      {{ api.0.Category.Name }} <br>
+        {% endif %}
+    
+    {% endif %}
+   
+{% endblock %}
